@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/ai-tour-orchestrator/"
+title = "AI Tour Orchestrator"
+description = "A mobile travel operations app that helps travelers plan personalized trips, track AI-generated itineraries, manage live changes, and stay safe with rapid agent replacement and emergency support."
+version = "1.0.0"
+id = "artifacts/ai-tour-orchestrator"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/ai-tour-orchestrator/" ]
+localPort = 22439
+
+[services.development]
+run = "pnpm --filter @workspace/ai-tour-orchestrator run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ai-tour-orchestrator", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/ai-tour-orchestrator", "run", "serve" ]
+
+[services.env]
+PORT = "22439"
+BASE_PATH = "/ai-tour-orchestrator/"
